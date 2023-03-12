@@ -1,0 +1,3 @@
+.output-characters {
+    @include flex (row, flex-start, space-between)
+}

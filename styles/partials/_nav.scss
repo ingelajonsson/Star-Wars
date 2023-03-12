@@ -1,0 +1,23 @@
+.nav-ul {
+    @include flex (row, space-around, center);
+    list-style: none;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    background-color: $color-dark-grey;
+    padding: 1rem;
+    width: 100vw;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-family: "Star Wars", sans-serif;
+    font-weight: lighter;
+}
+
+.nav-li {
+    color: white;
+    :hover {
+        color: $color-yellow;
+    }
+}

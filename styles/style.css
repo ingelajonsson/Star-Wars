@@ -1,0 +1,126 @@
+@font-face {
+  font-family: "Star wars";
+  src: url("/assets/fonts/Starjedi.ttf");
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("https://i.pinimg.com/originals/4a/a9/9b/4aa99b6ad2d2cbc7cb04a41571885a8f.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Raleway", sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header {
+  background-color: rgb(10, 10, 10);
+}
+
+.h1 {
+  color: yellow;
+  font-family: "Star Wars", sans-serif;
+  text-align: center;
+  font-size: 5rem;
+  margin: 2rem;
+}
+
+main {
+  background-color: rgb(10, 10, 10);
+  height: 100vh;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.nav-ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  background-color: rgb(10, 10, 10);
+  padding: 1rem;
+  width: 100vw;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-family: "Star Wars", sans-serif;
+  font-weight: lighter;
+}
+
+.nav-li {
+  color: white;
+}
+.nav-li :hover {
+  color: rgb(255, 255, 0);
+}
+
+.output-characters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: space-between;
+}
+
+.output-compare {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.inputs-compare {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+button {
+  color: rgb(255, 255, 255);
+  background: rgb(84, 84, 84);
+  font-family: "Star Wars";
+  padding: 4px 12px;
+  margin-top: 8px;
+}
+button :hover {
+  color: rgb(255, 255, 0);
+}
+
+#errorImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.loading-img {
+  height: 20%;
+  border-radius: 100px;
+  box-shadow: 0 0 16px 16px rgb(0, 0, 0);
+}
+
+.character-card {
+  margin: 2rem;
+}
+
+.compare-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}/*# sourceMappingURL=style.css.map */
