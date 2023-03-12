@@ -4,11 +4,12 @@ const select2 = document.querySelector("#select2");
 const showBtn = document.querySelector(".show-btn");
 const outputCharacters = document.querySelector(".output-characters");
 const compareHolder = document.querySelector(".compare-holder");
-// const test = document.querySelector(".");
+const compareBtn = document.querySelector(".compare-btn");
+let characterArr = [];
 
 
 class Character {
-    constructor(name, gender, height, mass, hairColor, skinColor, eyeColor, movies = [], pictureUrl) {
+    constructor(name, gender, height, mass, hairColor, skinColor, eyeColor, films = [], pictureUrl) {
         this.name = name;
         this.gender = gender;
         this.height = height;
@@ -16,7 +17,7 @@ class Character {
         this.hairColor = hairColor;
         this.skinColor = skinColor
         this.eyeColor = eyeColor;
-        this.movies = movies;
+        this.films = films;
         this.pictureUrl = pictureUrl;
     }
 }
@@ -44,11 +45,13 @@ let renderCharacters = async () => {
         outputCharacters.innerHTML = `
         <img src="https://i.gifer.com/origin/51/51bface5a294c81b805eed7a5f830b7b_w200.gif" alt="Loading gif of a spinning lightsaber" class="loading-img"/>`;
 
+        compareHolder.innerHTML ="";
+        compareBtn.classList.add("hidden");
         let characterOneData = await getData(`${apiBase}people/${select1.value}/`);
         let characterTwoData = await getData(`${apiBase}people/${select2.value}/`);
+        compareBtn.classList.remove("hidden");
         outputCharacters.innerHTML = "";
-        compareHolder.innerHTML ="";
-        let characterArr = [];
+        characterArr = [];
 
         let characterOne = new Character(
             characterOneData.name,
@@ -58,7 +61,7 @@ let renderCharacters = async () => {
             characterOneData.hair_color,
             characterOneData.skin_color,
             characterOneData.eye_color,
-            characterOneData.movies,
+            characterOneData.films.length,
             characterOneData.pictureUrl,
         );
         let characterTwo = new Character(
@@ -69,7 +72,7 @@ let renderCharacters = async () => {
             characterTwoData.hair_color,
             characterTwoData.skin_color,
             characterTwoData.eye_color,
-            characterTwoData.movies,
+            characterTwoData.films.length,
             characterOneData.pictureUrl,
         );
 
@@ -80,24 +83,40 @@ let renderCharacters = async () => {
             let characterCard = document.createElement("div");
             characterCard.classList.add("character-card");
             characterCard.innerHTML = `
-            <img src="https://lumiere-a.akamaihd.net/v1/images/bb-8-main_72775463.jpeg?region=104%2C0%2C1072%2C536" alt="a picture of ${obj.name}" style="height: 150px;"/><br/>
+            <img src="../assets/photos/${obj.name.replace(/\s/g, "-")}.png" alt="a picture of ${obj.name}" style="height: 150px;"/><br/>
             <h3 style="text-align: center;">${obj.name}</h3>
             `;
             outputCharacters.append(characterCard);
         })
         
-        let compareBtn = document.createElement("button");
-        compareBtn.innerText = "Compare characters";
-        compareHolder.append(compareBtn);
+        compareBtn.classList.remove("hidden");
 
-        console.log(characterOne)
-        console.log(characterTwo)
+        console.log(characterOne);
+        console.log(characterTwo);
     }
 }
 
 let compareCharacters = async () => {
+    characterArr.forEach((obj) => {
 
+        let characterInfo = document.createElement("div");
+        characterInfo.innerHTML = `
+        Gender: ${obj.gender} <br/>
+        Height: ${obj.height} cm<br/>
+        Mass: ${obj.mass} kg<br/>
+        Hair color: ${obj.hairColor} <br/>
+        Skin color: ${obj.skinColor} <br/>
+        Eye color: ${obj.eyeColor} <br/>
+        Amount of movies featured in: ${obj.films}`;
+        compareHolder.append(characterInfo);
+        console.log(`${obj.films}`);
+    })
+    
 }
+
+compareBtn.addEventListener("click", () => {
+    compareCharacters();
+})
 
 showBtn.addEventListener("click", () => {
     renderCharacters();
@@ -107,14 +126,5 @@ showBtn.addEventListener("click", () => {
 
 
 
-
-
-//             `Name: ${obj.name} <br/>
-//             Gender: ${obj.gender} <br/>
-//             Height: ${obj.height} cm<br/>
-//             Mass: ${obj.mass} kg<br/>
-//             Hair color: ${obj.hairColor} <br/>
-//             Skin color: ${obj.skinColor} <br/>
-//             Eye color: ${obj.eyeColor}`;
 
 

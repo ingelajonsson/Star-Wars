@@ -7,15 +7,8 @@
     margin-bottom: 40px
 }
 
-button {
-    color: $color-white;
-    background: $color-light-grey;
-    font-family: "Star Wars";
-    padding: 4px 12px;
-    margin-top: 8px;
-    :hover {
-        color: $color-yellow;
-    }
+.main-compare-wrapper {
+    @include flex (column, flex-start, center)
 }
 
 #errorImg {
@@ -37,5 +30,8 @@ button {
 }
 
 .compare-holder {
-    @include flex (column, flex-start, center)
+    @include flex (row, center, space-evenly); 
+    > div {
+        margin: 40px;
+    }
 }

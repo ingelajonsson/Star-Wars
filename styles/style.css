@@ -38,6 +38,21 @@ main {
   align-items: flex-start;
 }
 
+.hidden {
+  display: none;
+}
+
+button {
+  color: rgb(255, 255, 255);
+  background: rgb(84, 84, 84);
+  font-family: "Star Wars";
+  padding: 4px 12px;
+  margin-top: 8px;
+}
+button :hover {
+  color: rgb(255, 255, 0);
+}
+
 .nav-ul {
   display: flex;
   flex-direction: row;
@@ -87,15 +102,11 @@ main {
   margin-bottom: 40px;
 }
 
-button {
-  color: rgb(255, 255, 255);
-  background: rgb(84, 84, 84);
-  font-family: "Star Wars";
-  padding: 4px 12px;
-  margin-top: 8px;
-}
-button :hover {
-  color: rgb(255, 255, 0);
+.main-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #errorImg {
@@ -120,7 +131,10 @@ button :hover {
 
 .compare-holder {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: space-evenly;
+}
+.compare-holder > div {
+  margin: 40px;
 }/*# sourceMappingURL=style.css.map */
