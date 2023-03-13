@@ -22,7 +22,6 @@ class Character {
     }
 }
 
-
 // Get data
 let getData = async (url) => {
     let data = await fetch(url);
@@ -35,10 +34,10 @@ const apiBase = "https://swapi.dev/api/";
 
 let renderCharacters = async () => {
 
-    if (select1.value == 0 || select2.value == 0) {
+    if (select1.value === 0 || select2.value === 0 || select1.value === select2.value) {
         outputCharacters.innerHTML = "";
         compareHolder.innerHTML ="";
-        outputCharacters.innerHTML = `<div><h3>"Two characters one must choose"</h3><br/>
+        outputCharacters.innerHTML = `<div><h3>"Two different characters one must choose"</h3><br/>
         <img src="https://lumiere-a.akamaihd.net/v1/images/image_ba13b8fe.jpeg?region=0,0,1536,864" alt="A picture of yoda" id="errorImg"/></div>`; 
         console.log("ERROR");
     } else {
