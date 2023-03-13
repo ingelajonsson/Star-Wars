@@ -83,7 +83,7 @@ let renderCharacters = async () => {
             let characterCard = document.createElement("div");
             characterCard.classList.add("character-card");
             characterCard.innerHTML = `
-            <img src="../assets/photos/${obj.name.replace(/\s/g, "-")}.png" alt="a picture of ${obj.name}" style="height: 150px;"/><br/>
+            <img src="../assets/photos/${obj.name.replace(/\s/g, "-")}.png" alt="a picture of ${obj.name}" style="height: 150px; width: 200px;"/><br/>
             <h3 style="text-align: center;">${obj.name}</h3>
             `;
             outputCharacters.append(characterCard);

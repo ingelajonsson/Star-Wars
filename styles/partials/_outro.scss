@@ -1,0 +1,7 @@
+.main-outro {
+    @include flex (column, flex-start, center);
+}
+
+.h2-outro, .p-outro {
+    color: $color-yellow;
+}
