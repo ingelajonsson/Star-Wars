@@ -23,7 +23,7 @@ body {
 
 main {
     background-color: $color-dark-grey;
-    height: 100vh;
+    height: 130vh;
     width: 90%;
     @include flex ($justify: center);
 }

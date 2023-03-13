@@ -30,7 +30,7 @@ body {
 
 main {
   background-color: rgb(10, 10, 10);
-  height: 100vh;
+  height: 130vh;
   width: 90%;
   display: flex;
   flex-direction: row;
@@ -147,6 +147,10 @@ button :hover {
 }
 .compare-holder > div {
   margin: 40px;
+}
+
+.differences {
+  text-align: center;
 }
 
 .main-outro {
