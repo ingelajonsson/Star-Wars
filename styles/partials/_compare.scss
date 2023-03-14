@@ -16,6 +16,7 @@
 
 .main-compare-wrapper {
     @include flex (column, flex-start, center);
+    height: 140vh;
 }
 
 #errorImg {

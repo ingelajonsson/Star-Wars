@@ -23,7 +23,7 @@ body {
 
 main {
     background-color: $color-dark-grey;
-    height: 130vh;
+    height: 90vh;
     width: 90%;
     @include flex ($justify: center);
 }
@@ -42,3 +42,7 @@ button {
         color: $color-yellow;
     }
 }
+
+.nav-link.active {
+    color: $color-yellow;
+  }
