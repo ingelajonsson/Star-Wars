@@ -1,3 +1,15 @@
-.output-characters {
-    @include flex (row, flex-start, space-between)
+.main-index{
+    @include flex (column, center, center)
+}
+.text-index {
+    width: 60%;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.swapi-link {
+    color: $color-yellow;
+    ::after {
+        color: $color-yellow;
+    }
 }

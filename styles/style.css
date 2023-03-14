@@ -87,11 +87,24 @@ button :hover {
   color: rgb(255, 190, 0);
 }
 
-.output-characters {
+.main-index {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-index {
+  width: 60%;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.swapi-link {
+  color: rgb(255, 190, 0);
+}
+.swapi-link ::after {
+  color: rgb(255, 190, 0);
 }
 
 .output-compare {
@@ -113,7 +126,7 @@ button :hover {
   color: rgb(255, 255, 255);
   background: rgb(84, 84, 84);
   padding: 4px 12px;
-  margin: 8px;
+  margin: 1.5rem 1rem;
 }
 
 .main-compare-wrapper {
@@ -122,6 +135,13 @@ button :hover {
   justify-content: flex-start;
   align-items: center;
   height: 140vh;
+}
+
+.error-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #errorImg {
@@ -138,10 +158,18 @@ button :hover {
   height: 20%;
   border-radius: 100px;
   box-shadow: 0 0 16px 16px rgb(0, 0, 0);
+  height: 10rem;
 }
 
 .character-card {
   margin: 2rem;
+}
+
+.output-characters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: space-between;
 }
 
 .compare-holder {
@@ -158,7 +186,14 @@ button :hover {
   text-align: center;
 }
 
+.play-audio {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
 .main-outro {
+  position: relative;
   overflow: hidden;
   color: rgb(255, 190, 0);
   height: 80vh;

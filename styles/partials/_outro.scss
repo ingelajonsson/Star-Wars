@@ -1,4 +1,11 @@
+.play-audio {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
 .main-outro {
+    position: relative;
     overflow: hidden;
     color: $color-yellow;
     height: 80vh;

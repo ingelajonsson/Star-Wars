@@ -35,14 +35,16 @@ const apiBase = "https://swapi.dev/api/";
 
 let renderCharacters = async () => {
 
-    if (select1.value === 0 || select2.value === 0 || select1.value === select2.value) {
+    if (select1.value == 0 || select2.value == 0 || select1.value === select2.value) {
         outputCharacters.innerHTML = "";
         compareHolder.innerHTML = "";
-        outputCharacters.innerHTML = `<div><h3>"Two different characters one must choose"</h3><br/>
-        <img src="https://lumiere-a.akamaihd.net/v1/images/image_ba13b8fe.jpeg?region=0,0,1536,864" alt="A picture of yoda" id="errorImg"/></div>`;
+        outputCharacters.innerHTML = `<div class="error-div"><h3>"Two different characters one must choose"</h3><br/>
+        <img src="https://lumiere-a.akamaihd.net/v1/images/image_ba13b8fe.jpeg?region=0,0,1536,864" 
+        alt="A picture of yoda" id="errorImg"/></div>`;
     } else {
         outputCharacters.innerHTML = `
-        <img src="https://i.gifer.com/origin/51/51bface5a294c81b805eed7a5f830b7b_w200.gif" alt="Loading gif of a spinning lightsaber" class="loading-img"/>`;
+        <img src="https://i.gifer.com/origin/51/51bface5a294c81b805eed7a5f830b7b_w200.gif" 
+        alt="Loading gif of a spinning lightsaber" class="loading-img"/>`;
 
         compareHolder.innerHTML = "";
         compareBtn.classList.add("hidden");
@@ -82,7 +84,8 @@ let renderCharacters = async () => {
             let characterCard = document.createElement("div");
             characterCard.classList.add("character-card");
             characterCard.innerHTML = `
-            <img src="../assets/photos/${obj.name.replace(/\s/g, "-")}.png" alt="a picture of ${obj.name}" style="height: 150px; width: 200px;"/><br/>
+            <img src="../assets/photos/${obj.name.replace(/\s/g, "-")}.png" alt="a picture of ${obj.name}" 
+            style="height: 150px; width: 200px;"/><br/>
             <h3 style="text-align: center;">${obj.name}</h3>
             `;
             outputCharacters.append(characterCard);
@@ -96,6 +99,8 @@ let renderCharacters = async () => {
 }
 
 let compareCharacters = async () => {
+    compareHolder.innerHTML = "";
+
     characterArr.forEach((obj) => {
 
         let characterInfo = document.createElement("div");
@@ -111,6 +116,7 @@ let compareCharacters = async () => {
     })
     // Jämförelser 
     let compared = document.createElement("div");
+    compared.innerHTML = `<h2>Differences & similarities:</h2>`
 
     //Gender
     if (characterArr[0].gender === characterArr[1].gender) {
@@ -208,9 +214,23 @@ let compareCharacters = async () => {
 compareBtn.addEventListener("click", () => {
     differences.innerHTML = "";
     compareCharacters();
+    audio.play();
 })
 
 showBtn.addEventListener("click", () => {
     differences.innerHTML = "";
     renderCharacters();
 })
+
+// function play() {
+//     let audio = new Audio("/assets/song/Cantina_Theme_Song.mp3");
+//     audio.play();
+// }
+function play() {
+    let audio = new Audio("/assets/song/Star_Wars_Main_Theme_Song.mp3");
+    audio.play();
+}
+// function stop() {
+//     audio = "";
+//     audio.stop();
+//   }

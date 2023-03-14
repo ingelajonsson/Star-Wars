@@ -11,7 +11,7 @@
     color: $color-white;
     background: $color-light-grey;
     padding: 4px 12px;
-    margin: 8px;
+    margin: 1.5rem 1rem;
 }
 
 .main-compare-wrapper {
@@ -19,6 +19,9 @@
     height: 140vh;
 }
 
+.error-div {
+    @include flex (column, center, center)
+}
 #errorImg {
     @include flex (column, center, center);
     height: 150px;
@@ -30,11 +33,16 @@
     height: 20%; 
     border-radius: 100px;
     box-shadow: 0 0 16px 16px $color-black;
+    height: 10rem;
     // margin: ;
 }
 
 .character-card {
     margin: 2rem;
+}
+
+.output-characters {
+    @include flex (row, flex-start, space-between)
 }
 
 .compare-holder {
