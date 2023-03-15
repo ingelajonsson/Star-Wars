@@ -16,7 +16,7 @@
 
 .main-compare-wrapper {
     @include flex (column, flex-start, center);
-    height: 140vh;
+    height: 145vh;
 }
 
 .error-div {
@@ -34,7 +34,10 @@
     border-radius: 100px;
     box-shadow: 0 0 16px 16px $color-black;
     height: 10rem;
-    // margin: ;
+}
+
+.second {
+    margin-top: 2rem;
 }
 
 .character-card {
@@ -54,4 +57,9 @@
 
 .differences {
     text-align: center;
+}
+
+.first-movie-text {
+    width: 30%;
+    margin: 3rem;
 }
