@@ -24,7 +24,7 @@ const apiBase = "https://swapi.dev/api/";
 
 //Class
 class Character {
-    constructor(name, gender, height, mass, hairColor, skinColor, eyeColor, films = [], pictureURL, homeworld) {
+    constructor(name, gender, height, mass, hairColor, skinColor, eyeColor, films = [], pictureURL, homeworld, vehicles = [], starships = []) {
         this.name = name;
         this.gender = gender;
         this.height = height;
@@ -35,6 +35,8 @@ class Character {
         this.films = films;
         this.pictureURL = pictureURL;
         this.homeworld = homeworld;
+        this.vehicles = vehicles;
+        this.starships = starships;
     }
     async firstMovie() {
         let apiMovie = this.films[0].slice(-8, -1);
@@ -45,7 +47,7 @@ class Character {
         firstMovieText.innerHTML = `${this.name} first appeared in episode ${firstMovieData.episode_id}, "${firstMovieData.title}" ${firstMovieData.release_date}`;
         return firstMovieText;
     }
-    
+
     // async sameMovie() {
     //     let commonMovies = this.films.reduce((obj, film) => {
     //       if (obj.length === 0) {
@@ -54,7 +56,7 @@ class Character {
     //         return obj.filter(f => film.films.includes(f));
     //       }
     //     }, []);
-    
+
     //     let commonMovieText;
     //     if (commonMovies.length === 0) {
     //       commonMovieText = document.createElement("p");
@@ -66,7 +68,7 @@ class Character {
     //       commonMovieText.classList.add("common-movie-text");
     //       console.log(commonMovieText, "ELSE");
     //     }
-    
+
     //     for (let obj of commonMovies) {
     //       let apiSameMovie = obj.slice(-8, -1);
     //       let sameMovieData = await this.getData(`${apiBase}${apiSameMovie}/`);
@@ -77,22 +79,25 @@ class Character {
     //     }
     //     return this;
     // }
-    
 
-    async homePlanet (other) {
-        let apiNumPlanet1 = this.homeworld.slice(-3, -1).replace("/","");
-        let apiNumPlanet2 = other.homeworld.slice(-3, -1).replace("/","");
+
+    async homePlanet(other) {
+        let apiNumPlanet1 = this.homeworld.slice(-3, -1).replace("/", "");
+        let apiNumPlanet2 = other.homeworld.slice(-3, -1).replace("/", "");
         let planetData1 = await getData(`${apiBase}planets/${apiNumPlanet1}/`);
         let planetData2 = await getData(`${apiBase}planets/${apiNumPlanet2}/`);
 
-        if(apiNumPlanet1 === apiNumPlanet2){
+        if (apiNumPlanet1 === apiNumPlanet2) {
             let planetText = `${this.name} and ${other.name} share the same home planet, ${planetData1.name}`;
             return planetText;
-            }else{
+        } else {
             let planetText = `${this.name} is from ${planetData1.name} and ${other.name} is from ${planetData2.name}`;
             return planetText;
-        }      
+        }
     }
+    // async vehicles() {
+
+    // }
 }
 
 //Clear the whole page
@@ -124,6 +129,6 @@ let loadingLightsaber = (obj) => {
 }
 //Play audio
 let play = () => {
-    let audio = new Audio("/assets/song/Star_Wars_Main_Theme_Song.mp3");
+    let audio = new Audio("../assets/song/Star_Wars_Main_Theme_Song.mp3");
     audio.play();
 }

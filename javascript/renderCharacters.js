@@ -27,6 +27,8 @@ let renderCharacters = async () => {
             characterOneData.films,
             characterOneData.name.replace(/\s/g, "-"),
             characterOneData.homeworld,
+            characterOneData.vehicles,
+            characterOneData.starships
         );
         let characterTwo = new Character(
             characterTwoData.name,
@@ -39,6 +41,8 @@ let renderCharacters = async () => {
             characterTwoData.films,
             characterTwoData.name.replace(/\s/g, "-"),
             characterTwoData.homeworld,
+            characterTwoData.vehicles,
+            characterTwoData.starships
         );
 
         characterArr.push(characterOne, characterTwo);
