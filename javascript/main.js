@@ -44,7 +44,7 @@ class Character {
         compareHolder.innerHTML = "";
         let firstMovieText = document.createElement("p");
         firstMovieText.classList.add("first-movie-text");
-        firstMovieText.innerHTML = `${this.name} first appeared in episode ${firstMovieData.episode_id}, "${firstMovieData.title}" ${firstMovieData.release_date}`;
+        firstMovieText.innerHTML = `${this.name} first appeared in episode ${firstMovieData.episode_id}, "${firstMovieData.title}" ${firstMovieData.release_date}. `;
         return firstMovieText;
     }
 
@@ -55,37 +55,14 @@ class Character {
         let planetData2 = await getData(`${apiBase}planets/${apiNumPlanet2}/`);
 
         if (apiNumPlanet1 === apiNumPlanet2) {
-            let planetText = `${this.name} and ${other.name} share the same home planet, ${planetData1.name}`;
+            let planetText = `${this.name} and ${other.name} share the same home planet, ${planetData1.name}.`;
             return planetText;
         } else {
-            let planetText = `${this.name} is from ${planetData1.name} and ${other.name} is from ${planetData2.name}`;
+            let planetText = `${this.name} is from ${planetData1.name} and ${other.name} is from ${planetData2.name}.`;
             return planetText;
         }
     }
 
-    // async mostExpensive() {
-    //     //HÄR ÄR JAG
-    //     let maxPrice = 0;
-    //     for(let i = 0; i < this.starships.length; ++i){
-    //         let starshipData = await getData(this.starships[i]);
-    //         console.log(starshipData.cost_in_credits);
-    //         if (starshipData.cost_in_credits > maxPrice) {
-    //             maxPrice = starshipData.cost_in_credits;
-    //             mostExpensiveStarship = starshipData;
-    //           }
-    //     }
-
-    //     // let starshipNum = this.starships[0].slice(-3, -1).replace("/", "");
-    //     // let starshipArr = await getData(`${apiBase}starships/${starshipNum}/`);
-    //     // console.log(starshipNum);
-    //     // console.log(starshipArr);
-    //     return this;
-
-
-    //     }
-
-
-// EV FAIL
   async getMostExpensiveVehicle() {
     let maxPrice = 0;
     let mostExpensiveVehicle = 0;
@@ -113,14 +90,6 @@ async getMostExpensiveStarship() {
   }
 
 }
-
-
-
-
-
-
-
-
 
 
 //Clear the whole page

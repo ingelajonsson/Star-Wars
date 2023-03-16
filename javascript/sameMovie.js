@@ -13,7 +13,7 @@ sameMovieBtn.addEventListener("click", async () => {
   if (commonMovies.length === 0) {
     commonMovieText = document.createElement("p");
     commonMovieText.classList.add("common-movie-text");
-    messages.innerHTML = `${characterArr[0].name} and ${characterArr[1].name} have not been featured in the same movie`;
+    messages.innerHTML = `${characterArr[0].name} and ${characterArr[1].name} have not been featured in the same movie.`;
     compareHolder.innerHTML = "";
   } else {
     commonMovieText = document.createElement("p");
