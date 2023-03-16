@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
-    <title>Star Wars Characters</title>
+    <title>Star Wars - Compare Characters</title>
 </head>
 <body>
 
@@ -27,8 +27,6 @@
     </header>
     
     <main class="main-compare-wrapper">
-        <!-- <button onclick="play()">Play Audio</button>
-        <button onclick="stop()">Stop Audio</button> -->
             <div class="inputs-compare">
                 <div class="select-wrapper">
                     <select name="characterOne" id="select1" required>
@@ -75,8 +73,13 @@
                 <button class="show-btn">Show characters</button>
             </div>
             <div class="output-characters"></div>
+            <div class="messages hidden">Console...</div>
+            <div class="button-wrapper">
+                <button class="first-movie-btn hidden">First movie appearance</button>
+                <button class="same-movie-btn hidden">Appearance in same movie</button>
+                <button class="home-planet-btn hidden">Home planet</button>
+            </div>
             <button class="compare-btn hidden">Compare characters</button>
-            <button class="first-movie-btn hidden">First movie appearance</button>
             <div class="compare-holder"></div>
             <div class="differences"></div>
     </main>
@@ -86,5 +89,7 @@
     <script src="/javascript/renderCharacters.js"></script>
     <script src="/javascript/compareCharacters.js"></script>
     <script src="/javascript/firstMovie.js"></script>
+    <script src="/javascript/sameMovie.js"></script>
+    <script src="/javascript/homePlanet.js"></script>
 </body>
 </html>

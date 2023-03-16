@@ -2,9 +2,9 @@ let compareCharacters = () => {
     compareHolder.innerHTML = "";
 
     characterArr.forEach((obj) => {
-
         let characterInfo = document.createElement("div");
         characterInfo.innerHTML = `
+        Name: ${obj.name} <br/>
         Gender: ${obj.gender} <br/>
         Height: ${obj.height} cm<br/>
         Weight: ${obj.mass} kg<br/>
@@ -96,18 +96,24 @@ let compareCharacters = () => {
     }
 
     //Films
-    if (characterArr[0].films > characterArr[1].films) {
+    if (characterArr[0].films.length > characterArr[1].films.length) {
         let films = document.createElement("p");
         films.innerHTML = `${characterArr[0].name} has been in more movies then ${characterArr[1].name}`;
         compared.append(films);
-    } else if (characterArr[0].films < characterArr[1].films) {
+    } else if (characterArr[0].films.length < characterArr[1].films.length) {
         let films = document.createElement("p");
         films.innerHTML = `${characterArr[1].name} has been in more movies then ${characterArr[0].name}`;
         compared.append(films);
     } else {
         let films = document.createElement("p");
-        films.innerHTML = `${characterArr[0].name} and ${characterArr[1].name} has been in the same amout of movies`;
+        films.innerHTML = `${characterArr[0].name} and ${characterArr[1].name} have been in the same amout of movies`;
         compared.append(films);
     }
     differences.append(compared);
 }
+
+//Button
+compareBtn.addEventListener("click", () => {
+    clearBottom();
+    compareCharacters();
+});
