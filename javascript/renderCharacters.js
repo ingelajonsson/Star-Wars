@@ -42,7 +42,6 @@ let renderCharacters = async () => {
         );
 
         characterArr.push(characterOne, characterTwo);
-        // characterArr.push(characterTwo);
 
         characterArr.forEach((obj) => {
             let characterCard = document.createElement("div");

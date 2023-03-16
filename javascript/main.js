@@ -8,6 +8,7 @@ const compareBtn = document.querySelector(".compare-btn");
 const firstMovieBtn = document.querySelector(".first-movie-btn");
 const sameMovieBtn = document.querySelector(".same-movie-btn");
 const homePlanetBtn = document.querySelector(".home-planet-btn");
+const vehicleBtn = document.querySelector(".vehicle-btn");
 const differences = document.querySelector(".differences");
 const messages = document.querySelector(".messages");
 let characterArr = [];
@@ -44,6 +45,7 @@ class Character {
         firstMovieText.innerHTML = `${this.name} first appeared in episode ${firstMovieData.episode_id}, "${firstMovieData.title}" ${firstMovieData.release_date}`;
         return firstMovieText;
     }
+    
     // async sameMovie() {
     //     let commonMovies = this.films.reduce((obj, film) => {
     //       if (obj.length === 0) {
@@ -97,6 +99,7 @@ class Character {
 let clearAll = () => {
     sameMovieBtn.classList.add("hidden");
     homePlanetBtn.classList.add("hidden");
+    vehicleBtn.classList.add("hidden");
     messages.classList.add("hidden");
 }
 //Remove the hidden class from the bottom part of the page
@@ -106,6 +109,7 @@ let showBottom = () => {
     firstMovieBtn.classList.remove("hidden");
     sameMovieBtn.classList.remove("hidden");
     homePlanetBtn.classList.remove("hidden");
+    vehicleBtn.classList.remove("hidden");
 }
 //Remove inner HTML from the compare button
 let clearBottom = () => {

@@ -2,6 +2,8 @@
 sameMovieBtn.addEventListener("click", async () => {
   differences.innerHTML = "";
   messages.innerHTML = "Loading..."
+  // let sameMovies = characterArr[0].sameMovies(characterArr[1]);
+  // console.log(sameMovies);
 
   let commonMovies = characterArr.reduce((obj, character) => {
     if (obj.length === 0) {
@@ -25,7 +27,7 @@ sameMovieBtn.addEventListener("click", async () => {
     let apiSameMovie = obj.slice(-8, -1);
     let sameMovieData = await getData(`${apiBase}${apiSameMovie}/`);
     compareHolder.innerHTML = "";
-    messages.innerHTML = "Movies they have both been featured in: ";
+    messages.innerHTML = "They have both been featured in: ";
     if (commonMovies.length > 0) {
       commonMovieText.innerHTML += `"${sameMovieData.title}", `;
       messages.append(commonMovieText);
