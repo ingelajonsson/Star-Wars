@@ -48,39 +48,6 @@ class Character {
         return firstMovieText;
     }
 
-    // async sameMovie() {
-    //     let commonMovies = this.films.reduce((obj, film) => {
-    //       if (obj.length === 0) {
-    //         return film;
-    //       } else {
-    //         return obj.filter(f => film.films.includes(f));
-    //       }
-    //     }, []);
-
-    //     let commonMovieText;
-    //     if (commonMovies.length === 0) {
-    //       commonMovieText = document.createElement("p");
-    //       commonMovieText.classList.add("common-movie-text");
-    //       commonMovieText.innerHTML = "These two characters have not been featured in the same movie";
-    //       console.log(commonMovieText, "IF");
-    //     } else {
-    //       commonMovieText = document.createElement("p");
-    //       commonMovieText.classList.add("common-movie-text");
-    //       console.log(commonMovieText, "ELSE");
-    //     }
-
-    //     for (let obj of commonMovies) {
-    //       let apiSameMovie = obj.slice(-8, -1);
-    //       let sameMovieData = await this.getData(`${apiBase}${apiSameMovie}/`);
-    //       if (commonMovies.length > 0) {
-    //         commonMovieText.innerHTML += `"${sameMovieData.title}" `;
-    //         messages.append(commonMovieText);
-    //       }
-    //     }
-    //     return this;
-    // }
-
-
     async homePlanet(other) {
         let apiNumPlanet1 = this.homeworld.slice(-3, -1).replace("/", "");
         let apiNumPlanet2 = other.homeworld.slice(-3, -1).replace("/", "");
@@ -95,10 +62,66 @@ class Character {
             return planetText;
         }
     }
-    // async vehicles() {
 
-    // }
+    // async mostExpensive() {
+    //     //HÄR ÄR JAG
+    //     let maxPrice = 0;
+    //     for(let i = 0; i < this.starships.length; ++i){
+    //         let starshipData = await getData(this.starships[i]);
+    //         console.log(starshipData.cost_in_credits);
+    //         if (starshipData.cost_in_credits > maxPrice) {
+    //             maxPrice = starshipData.cost_in_credits;
+    //             mostExpensiveStarship = starshipData;
+    //           }
+    //     }
+
+    //     // let starshipNum = this.starships[0].slice(-3, -1).replace("/", "");
+    //     // let starshipArr = await getData(`${apiBase}starships/${starshipNum}/`);
+    //     // console.log(starshipNum);
+    //     // console.log(starshipArr);
+    //     return this;
+
+
+    //     }
+
+
+// EV FAIL
+  async getMostExpensiveVehicle() {
+    let maxPrice = 0;
+    let mostExpensiveVehicle = 0;
+    for (let i = 0; i < this.vehicles.length; i++) {
+      const vehicleDetails = await getData(this.vehicles[i]);
+      if (parseInt(vehicleDetails.cost_in_credits) > maxPrice) {
+        maxPrice = parseInt(vehicleDetails.cost_in_credits);
+        mostExpensiveVehicle = vehicleDetails;
+      }
+    }
+    return mostExpensiveVehicle;
+  }
+
+async getMostExpensiveStarship() {
+    let maxPrice = 0;
+    let mostExpensiveStarship = 0;
+    for (let i = 0; i < this.starships.length; i++) {
+      const starshipDetails = await getData(this.starships[i]);
+      if (parseInt(starshipDetails.cost_in_credits) > maxPrice) {
+        maxPrice = parseInt(starshipDetails.cost_in_credits);
+        mostExpensiveStarship = starshipDetails;
+      }
+    }
+    return mostExpensiveStarship;
+  }
+
 }
+
+
+
+
+
+
+
+
+
 
 //Clear the whole page
 let clearAll = () => {

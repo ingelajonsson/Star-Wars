@@ -1,9 +1,6 @@
-
 sameMovieBtn.addEventListener("click", async () => {
   differences.innerHTML = "";
   messages.innerHTML = "Loading..."
-  // let sameMovies = characterArr[0].sameMovies(characterArr[1]);
-  // console.log(sameMovies);
 
   let commonMovies = characterArr.reduce((obj, character) => {
     if (obj.length === 0) {
@@ -15,23 +12,19 @@ sameMovieBtn.addEventListener("click", async () => {
   let commonMovieText;
   if (commonMovies.length === 0) {
     commonMovieText = document.createElement("p");
-     commonMovieText.classList.add("common-movie-text");
+    commonMovieText.classList.add("common-movie-text");
     messages.innerHTML = `${characterArr[0].name} and ${characterArr[1].name} have not been featured in the same movie`;
     compareHolder.innerHTML = "";
   } else {
     commonMovieText = document.createElement("p");
     commonMovieText.classList.add("common-movie-text");
-  }
-  
-  for (let obj of commonMovies) {
-    let apiSameMovie = obj.slice(-8, -1);
-    let sameMovieData = await getData(`${apiBase}${apiSameMovie}/`);
     compareHolder.innerHTML = "";
     messages.innerHTML = "They have both been featured in: ";
-    if (commonMovies.length > 0) {
+    for (let obj of commonMovies) {
+      let apiSameMovie = obj.slice(-8, -1);
+      let sameMovieData = await getData(`${apiBase}${apiSameMovie}/`);
       commonMovieText.innerHTML += `"${sameMovieData.title}", `;
-      messages.append(commonMovieText);
     }
+    messages.append(commonMovieText);
   }
 });
-  
