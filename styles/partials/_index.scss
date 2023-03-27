@@ -1,6 +1,12 @@
 .main-index{
-    @include flex (column, center, center)
+    @include flex (column, center, center);
+    margin: 100px;
 }
+
+.header-index {
+    margin-top: 20px;
+}
+
 .text-index {
     width: 60%;
     text-align: center;
