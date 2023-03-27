@@ -1,10 +1,10 @@
 .main-index{
     @include flex (column, center, center);
-    margin: 100px;
 }
 
-.header-index {
+.img-index {
     margin-top: 20px;
+    width: 70%;
 }
 
 .text-index {
